@@ -1,0 +1,117 @@
+<div class="add-div" *ngIf="isTable === 0">
+    <button class="btn btn-primary" (click)="this.isTable = 1;">Add</button>
+</div>
+
+<table *ngIf="isTable === 0" class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">S.NO</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Age</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Mobile</th>
+            <th scope="col">Pan</th>
+            <th scope="col">Adhaar</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of datas; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{data.first_name}}</td>
+            <td>{{data.last_name}}</td>
+            <td>{{data.emailId}}</td>
+            <td>{{data.age}}</td>
+            <td>{{data.gender}}</td>
+            <td>{{data.mobilenumber}}</td>
+            <td>{{data.pan_no}}</td>
+            <td>{{data.adhaar_no}}</td>
+            <td>
+                <button class="btn btn-success" (click)="editEmp(data.id)" style="margin-right: 10px;">Edit</button>
+                <button class="btn btn-danger" (click)="deleteEmp(data.id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf="isTable == 1">
+    <div class="table-div">
+        <form [formGroup]="empForm" (ngSubmit)="onSubmit()">
+            <div class="form-group mb-3">
+                <label for="first_name">First Name</label>
+                <input type="text" name="first_name" formControlName="first_name" class="form-control" id="first_name">
+            </div>
+            <div class="form-group mb-3">
+                <label for="last_name">Last Name</label>
+                <input type="text" formControlName="last_name" class="form-control" id="last_name">
+            </div>
+            <div class="form-group mb-3">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" formControlName="emailId" class="form-control" id="exampleInputEmail1">
+            </div>
+            <div class="form-group mb-3">
+                <label for="age">Age</label>
+                <input type="number" formControlName="age" class="form-control" id="age">
+            </div>
+            <div class="form-group mb-3">
+                <label for="gender">Gender</label>
+                <input type="text" formControlName="gender" class="form-control" id="gender">
+            </div>
+            <div class="form-group mb-3">
+                <label for="mobile">Mobile Number</label>
+                <input type="text" formControlName="mobile" class="form-control" id="mobile">
+            </div>
+            <div class="form-group mb-3">
+                <label for="pan_no">Pan Number</label>
+                <input type="number" formControlName="pan_no" class="form-control" id="pan_no">
+            </div>
+            <div class="form-group mb-3">
+                <label for="adhaar_no">Adhaar Number</label>
+                <input type="number" formControlName="adhaar_no" class="form-control" id="adhaar_no">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+<div *ngIf="isTable == 2">
+    <div class="table-div">
+        <form [formGroup]="empForm" (ngSubmit)="onUpdate()">
+            <div class="form-group mb-3">
+                <label for="first_name">First Name</label>
+                <input type="text" name="first_name" formControlName="first_name" class="form-control" id="first_name">
+            </div>
+            <div class="form-group mb-3">
+                <label for="last_name">Last Name</label>
+                <input type="text" formControlName="last_name" class="form-control" id="last_name">
+            </div>
+            <div class="form-group mb-3">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" formControlName="emailId" class="form-control" id="exampleInputEmail1">
+            </div>
+            <div class="form-group mb-3">
+                <label for="age">Age</label>
+                <input type="number" formControlName="age" class="form-control" id="age">
+            </div>
+            <div class="form-group mb-3">
+                <label for="gender">Gender</label>
+                <input type="text" formControlName="gender" class="form-control" id="gender">
+            </div>
+            <div class="form-group mb-3">
+                <label for="mobile">Mobile Number</label>
+                <input type="text" formControlName="mobile" class="form-control" id="mobile">
+            </div>
+            <div class="form-group mb-3">
+                <label for="pan_no">Pan Number</label>
+                <input type="number" formControlName="pan_no" class="form-control" id="pan_no">
+            </div>
+            <div class="form-group mb-3">
+                <label for="adhaar_no">Adhaar Number</label>
+                <input type="number" formControlName="adhaar_no" class="form-control" id="adhaar_no">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>

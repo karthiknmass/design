@@ -1,0 +1,10 @@
+.add-div {
+    display: flex;
+    justify-content: end;
+    margin: 2%;
+}
+
+.table-div {
+    width: 50%;
+    margin: 0 auto;
+}
